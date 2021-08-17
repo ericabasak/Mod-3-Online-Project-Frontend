@@ -1,14 +1,25 @@
+import { timesSeries } from 'async';
 import React, { Component } from 'react';
 import './App.css';
 
-class App extends Component{
+class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      books: [
+         { bookTitle: "Grit" },
+         { bookTitle: "The Secret" },
+         { bookTitle: "From Good to Great!" },
+      ]
+    }
+  }
   render() {
     return (
       <div className="App">
         <ul>
-          <li>Book Title 1</li>
-          <li>Book Title 2</li>
-          <li>Book Title 3</li>
+          {this.state.books.map(book => 
+            <li>{book.bookTitle}</li>
+          )}
         </ul>
       </div>
     );
